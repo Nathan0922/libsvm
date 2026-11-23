@@ -1677,6 +1677,16 @@ static decision_function svm_train_one(
 		case NU_SVR:
 			solve_nu_svr(prob,param,alpha,&si);
 			break;
+		default:
+			fprintf(stderr,"ERROR: unknown svm type %d in svm_train_one\n",param->svm_type);
+			for(int i=0;i<prob->l;i++)
+				alpha[i] = 0;
+			si.obj = 0;
+			si.rho = 0;
+			si.upper_bound_p = 0;
+			si.upper_bound_n = 0;
+			si.r = 0;
+			break;
 	}
 
 	info("obj = %f, rho = %f\n",si.obj,si.rho);
