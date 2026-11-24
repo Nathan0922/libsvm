@@ -7,7 +7,13 @@
 extern "C" {
 #endif
 
-extern int libsvm_version;
+#if defined(_WIN32) && defined(LIBSVM_DLL)
+#define LIBSVM_IMPORT __declspec(dllimport)
+#else
+#define LIBSVM_IMPORT
+#endif
+
+extern LIBSVM_IMPORT int libsvm_version;
 
 struct svm_node
 {
