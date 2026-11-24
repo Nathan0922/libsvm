@@ -13,6 +13,10 @@
 #endif
 
 int libsvm_version = LIBSVM_VERSION;
+int svm_get_version(void)
+{
+	return libsvm_version;
+}
 typedef float Qfloat;
 typedef signed char schar;
 #ifndef min

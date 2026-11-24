@@ -9,6 +9,8 @@ extern "C" {
 
 extern int libsvm_version;
 
+int svm_get_version(void);
+
 struct svm_node
 {
 	int index;
